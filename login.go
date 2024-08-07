@@ -34,6 +34,9 @@ func GetLoginHandler(db *gorm.DB, jwtKey, passwordSalt string) gin.HandlerFunc {
 			return
 		}
 
-		c.JSON(200, gin.H{"token": token})
+		c.JSON(200, gin.H{
+			"username": user.Username,
+			"token":    token,
+		})
 	}
 }
